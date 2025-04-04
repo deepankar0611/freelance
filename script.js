@@ -48,6 +48,11 @@ function dragStart(event) {
     isDragging = true;
     animationID = requestAnimationFrame(animation);
     slidesContainer.style.transition = 'none';
+    
+    // Remove active class from all slides when starting to drag
+    Array.from(slides).forEach(slide => {
+        slide.classList.remove('active');
+    });
 }
 
 function drag(event) {
@@ -92,6 +97,23 @@ function setPositionByIndex() {
     prevTranslate = currentTranslate;
     setSliderPosition();
     slidesContainer.style.transition = 'transform 0.3s ease-out';
+    
+    // Update active slide for text animation
+    Array.from(slides).forEach((slide, index) => {
+        if (index === currentIndex) {
+            slide.classList.add('active');
+            // Reset animation by removing and re-adding the text element
+            const slideText = slide.querySelector('.slide-text');
+            if (slideText) {
+                const parent = slideText.parentNode;
+                const clone = slideText.cloneNode(true);
+                parent.removeChild(slideText);
+                parent.appendChild(clone);
+            }
+        } else {
+            slide.classList.remove('active');
+        }
+    });
 }
 
 function setSliderPosition() {
