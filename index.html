@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traditional Comfort Hotel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <div class="contact-info">
+                    <a href="#" class="map-link"><i class="fas fa-map-marker-alt"></i> View Map</a>
+                    <span class="separator">|</span>
+                    <span>Contact</span>
+                    <a href="tel:+977-9802082111">+977-9802082111</a>
+                    <span>,</span>
+                    <a href="tel:+01-4510009/10">+01-4510009/10</a>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <img src="4.png" alt="Traditional Comfort">
+                </div>
+                <div class="nav-links">
+                    <a href="#" class="active">HOME</a>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle">
+                            <span>ABOUT</span>
+                            <span class="sub-text">US</span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="#">Our Story</a>
+                            <a href="#">Our Team</a>
+                        </div>
+                    </div>
+                    <a href="#">SERVICES</a>
+                    <a href="#">DINING</a>
+                    <a href="#">ROOMS</a>
+                    <a href="#">BLOGS</a>
+                    <a href="#">GALLERY</a>
+                    <a href="#">CONTACT</a>
+                    <a href="#">SUSTAINABILITY</a>
+                </div>
+                <div class="auth-buttons">
+                    <a href="#" class="login"><i class="fas fa-sign-in-alt"></i> Login</a>
+                    <a href="#" class="signup"><i class="fas fa-user-plus"></i> Sign Up</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slides-container">
+                    <div class="slide">
+                        <img src="1.jpg" alt="Hotel View 1">
+                        <div class="slide-text">
+                            <h1>Enjoy Overlooking the Ambikapur City</h1>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="2.png" alt="Hotel View 2">
+                        <div class="slide-text">
+                            <h1>Experience Luxury at its Finest</h1>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="3.png" alt="Hotel View 3">
+                        <div class="slide-text">
+                            <h1>Your Home Away From Home</h1>
+                        </div>
+                    </div>
+                </div>
+                <button class="prev" onclick="changeSlide(-1)">❮</button>
+                <button class="next" onclick="changeSlide(1)">❯</button>
+            </div>
+
+            <div class="booking-container">
+                <div class="booking-left">
+                    <h2>Book Online</h2>
+                    <p>Guaranteed accommodation</p>
+                </div>
+                <form class="booking-form">
+                    <div class="form-group date-picker">
+                        <label>Check-in/Check-out</label>
+                        <input type="text" id="dateRange" readonly placeholder="04/04/2025 - 04/04/2025">
+                        <div class="calendar-dropdown">
+                            <div class="calendar-header">
+                                <button type="button" class="prev-month">&lt;</button>
+                                <span class="current-month">April 2025</span>
+                                <button type="button" class="next-month">&gt;</button>
+                            </div>
+                            <div class="calendar-days">
+                                <div>Sun</div>
+                                <div>Mon</div>
+                                <div>Tue</div>
+                                <div>Wed</div>
+                                <div>Thu</div>
+                                <div>Fri</div>
+                                <div>Sat</div>
+                            </div>
+                            <div class="calendar"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Adult</label>
+                        <div class="number-input">
+                            <button type="button" onclick="this.parentNode.querySelector('input').stepDown()">-</button>
+                            <input type="number" min="1" value="1" readonly>
+                            <button type="button" onclick="this.parentNode.querySelector('input').stepUp()">+</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Children</label>
+                        <div class="number-input">
+                            <button type="button" onclick="this.parentNode.querySelector('input').stepDown()">-</button>
+                            <input type="number" min="0" value="0" readonly>
+                            <button type="button" onclick="this.parentNode.querySelector('input').stepUp()">+</button>
+                        </div>
+                    </div>
+                    <button type="submit" class="book-now">Book Now</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html> 

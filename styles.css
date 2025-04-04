@@ -1,0 +1,513 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Top Bar */
+.top-bar {
+    color: white;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    background: transparent;
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-info a {
+    color: white;
+    text-decoration: none;
+}
+
+.contact-info .separator {
+    margin: 0 0.5rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Header and Navigation */
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    background: transparent;
+}
+
+nav {
+    padding: 1rem 0;
+    border-bottom: none;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a.active {
+    color: #c8102e;
+}
+
+.nav-links a:hover {
+    color: #c8102e;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.auth-buttons a {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.login {
+    color: #333;
+}
+
+.signup {
+    color: white;
+}
+
+.signup:hover {
+    background: #a00d25;
+}
+
+/* Slider */
+.slider-container {
+    position: relative;
+    height: 100vh;
+    overflow: visible;
+}
+
+.slider {
+    width: 100%;
+    height: 85%;
+    position: relative;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    overflow: hidden;
+}
+
+.slider:active {
+    cursor: grabbing;
+}
+
+.slides-container {
+    display: flex;
+    position: absolute;
+    width: 300%; /* 3x width to accommodate prev, current, and next slides */
+    height: 100%;
+    transition: transform 0.3s ease-out;
+}
+
+.slide {
+    position: relative;
+    width: 33.333%; /* Each slide takes 1/3 of the container */
+    height: 100%;
+    opacity: 1;
+    flex-shrink: 0;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    text-align: center;
+    color: white;
+    opacity: 0;
+    animation: slideUpFade 1.5s ease-out forwards;
+}
+
+@keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.slide-text h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 1rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 100;
+}
+
+.prev {
+    left: 1rem;
+}
+
+.next {
+    right: 1rem;
+}
+
+/* Booking Container */
+.booking-container {
+    position: absolute;
+    bottom: 9%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+.booking-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding-right: 2rem;
+    border-right: 1px solid red;
+}
+
+.booking-container h2 {
+    color: #333;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.booking-container p {
+    color: #666;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.booking-form {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-grow: 1;
+    margin: 0 2rem;
+}
+
+.form-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    flex: 1;
+    padding-right: 2rem;
+    border-right: 1px solid red;
+}
+
+.form-group:last-child {
+    border-right: none;
+    padding-right: 0;
+}
+
+.form-group.date-picker {
+    flex: 3;
+    padding: 0 2rem;
+}
+
+.form-group.date-picker input {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1.1rem;
+}
+
+.form-group label {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    padding: 0.6rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #f9f9f9;
+}
+
+.form-group input[type="text"] {
+    cursor: pointer;
+}
+
+.number-input {
+    display: flex;
+    align-items: center;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.number-input button {
+    padding: 0.6rem 1rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: #666;
+}
+
+.number-input input {
+    width: 40px;
+    text-align: center;
+    border: none;
+    padding: 0.6rem 0;
+    background: transparent;
+}
+
+.book-now {
+    padding: 0.8rem 2rem;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    white-space: nowrap;
+}
+
+.book-now:hover {
+    background: #ff5252;
+}
+
+/* Calendar Styles */
+.calendar-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 1rem;
+    margin-top: 0.5rem;
+    display: none;
+    z-index: 1000;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.calendar-dropdown.active {
+    display: block;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.calendar-date {
+    padding: 0.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.calendar-date:hover {
+    background: #f0f0f0;
+}
+
+.calendar-date.selected {
+    background: #ff6b6b;
+    color: white;
+}
+
+.calendar-date.disabled {
+    color: #ccc;
+    cursor: not-allowed;
+    background: #f5f5f5;
+}
+
+.calendar-date.disabled:hover {
+    background: #f5f5f5;
+}
+
+/* Fade Animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: 0.4}
+    to {opacity: 1}
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    position: relative;
+    padding-right: 1.2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    line-height: 1.2;
+}
+
+.dropdown-toggle span {
+    display: inline-block;
+}
+
+.dropdown-toggle .sub-text {
+    font-size: 0.9rem;
+}
+
+.dropdown-toggle::after {
+    content: '▼';
+    font-size: 0.7em;
+    margin-left: 0.5rem;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: white;
+    min-width: 200px;
+    padding: 1rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-top: 3px solid #c8102e;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.5rem 1.5rem;
+    color: #333;
+    font-weight: normal;
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background: #f8f8f8;
+    padding-left: 2rem;
+}
+
+/* Update existing nav-links styles */
+.nav-links > a,
+.nav-links .dropdown-toggle {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links > a.active,
+.nav-links > a:hover,
+.nav-links .dropdown-toggle:hover {
+    color: #c8102e;
+} 
